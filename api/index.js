@@ -45,7 +45,7 @@ app.post('/send-email', async (req, res) => {
 });
 
 app.post('/send-terraexpert', async (req, res) => {
-  const { Email, Message } = req.body;
+  const { Email, Message, Name, Phone } = req.body;
   const email = {
     to: 'rubzat@gmail.com',
     subject: Email,
