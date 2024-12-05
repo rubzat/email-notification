@@ -44,8 +44,14 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-app.post('/send-terraexpert', async (req, res) => {
-  const { Email, Message, Name, Phone } = req.body;
+app.get('/send-terraexpert', async (req, res) => {
+  const { Name, Email, Phone, Message } = req.query;
+
+  // Validar datos
+  if (!Name || !Email || !Phone || !Message) {
+    return res.status(400).json({ error: 'Faltan datos requeridos' });
+  }
+
   const email = {
     to: 'rubzat@gmail.com',
     subject: Email,
