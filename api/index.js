@@ -29,7 +29,7 @@ app.post("/send-email", async (req, res) => {
     to = "rubzat@gmail.com";
   }
   if (type == "itdraft") {
-    to = "rubzat@gmail.com";
+    to = "contacto@itdraft.mx";
     fromName = "ITDraft";
   }
   const email = {
@@ -40,7 +40,6 @@ app.post("/send-email", async (req, res) => {
     bodyText: `Nombre: ${nombre} ${apellido}, Telefono: ${telefono}, Mensaje: ${mensaje}, `,
     apiKey: process.env.ELASTIC_EMAIL_API_KEY,
   };
-  console.log("email", email);
   try {
     const response = await axios.post(
       "https://api.elasticemail.com/v2/email/send",
